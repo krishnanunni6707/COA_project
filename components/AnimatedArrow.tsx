@@ -54,7 +54,7 @@ export default function AnimatedArrow({ isActive, isHit, activeFrameIndex, frame
             }}
         >
             {/* Arrow Line - Horizontal on both mobile and desktop */}
-            <div className="relative h-1 w-12 sm:w-20 md:w-24 lg:w-32 bg-slate-700 rounded-full overflow-hidden">
+            <div className="relative h-1 w-12 sm:w-20 md:w-24 lg:w-32 bg-gray-300 rounded-full overflow-hidden">
                 {/* Animated Pulse */}
                 {isActive && (
                     <motion.div
@@ -78,9 +78,9 @@ export default function AnimatedArrow({ isActive, isHit, activeFrameIndex, frame
                 <motion.svg
                     className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 -ml-2 ${isActive
                         ? isHit
-                            ? "text-emerald-400"
-                            : "text-rose-400"
-                        : "text-slate-700"
+                            ? "text-emerald-500"
+                            : "text-rose-500"
+                        : "text-gray-400"
                         }`}
                     fill="currentColor"
                     viewBox="0 0 20 20"

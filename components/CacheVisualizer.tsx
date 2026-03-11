@@ -67,11 +67,11 @@ export default function CacheVisualizer({
                                 <motion.div
                                     className={`relative w-40 h-16 rounded-xl border-2 flex items-center justify-center overflow-hidden transition-all ${isActive
                                         ? isHit
-                                            ? "border-emerald-500 bg-emerald-950/30 shadow-lg shadow-emerald-500/30"
-                                            : "border-rose-500 bg-rose-950/30 shadow-lg shadow-rose-500/30"
+                                            ? "border-emerald-500 bg-emerald-50 shadow-lg shadow-emerald-500/30"
+                                            : "border-rose-500 bg-rose-50 shadow-lg shadow-rose-500/30"
                                         : isEmpty
-                                            ? "border-slate-700/50 bg-slate-900/50"
-                                            : "border-slate-600 bg-slate-800/50"
+                                            ? "border-gray-200 bg-white"
+                                            : "border-gray-300 bg-white"
                                         }`}
                                     animate={isActive ? {
                                         scale: [1, 1.05, 1],
@@ -82,7 +82,7 @@ export default function CacheVisualizer({
                                     }}
                                 >
                                     {/* Frame Number Badge */}
-                                    <div className="absolute top-1 left-1 px-2 py-0.5 bg-slate-950/60 backdrop-blur-sm rounded text-xs text-slate-400 font-mono">
+                                    <div className="absolute top-1 left-1 px-2 py-0.5 bg-gray-100 backdrop-blur-sm rounded text-xs text-slate-600 font-mono">
                                         F{index}
                                     </div>
 
@@ -97,11 +97,11 @@ export default function CacheVisualizer({
                                             className="flex flex-col items-center justify-center"
                                         >
                                             {isEmpty ? (
-                                                <span className="text-2xl text-slate-600 font-mono">—</span>
+                                                <span className="text-2xl text-slate-300 font-mono">—</span>
                                             ) : (
                                                 <>
                                                     <span className="text-xs text-slate-500">Page</span>
-                                                    <span className="text-2xl font-bold text-slate-200 font-mono">
+                                                    <span className="text-2xl font-bold text-slate-800 font-mono">
                                                         {frame}
                                                     </span>
                                                 </>
@@ -145,10 +145,10 @@ export default function CacheVisualizer({
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
-                            className="absolute -right-48 top-1/2 -translate-y-1/2 w-40 p-3 bg-rose-900/40 backdrop-blur-sm border border-rose-500/30 rounded-lg"
+                            className="absolute -right-48 top-1/2 -translate-y-1/2 w-40 p-3 bg-rose-50 backdrop-blur-sm border border-rose-300 rounded-lg"
                         >
-                            <p className="text-xs text-rose-300 font-semibold">Evicted</p>
-                            <p className="text-lg font-bold text-rose-200">Page {evictedPage}</p>
+                            <p className="text-xs text-rose-700 font-semibold">Evicted</p>
+                            <p className="text-lg font-bold text-rose-600">Page {evictedPage}</p>
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -159,7 +159,7 @@ export default function CacheVisualizer({
                 {[...Array(8)].map((_, i) => (
                     <div
                         key={i}
-                        className="w-1 h-3 bg-slate-700 rounded-full"
+                        className="w-1 h-3 bg-gray-300 rounded-full"
                     />
                 ))}
             </div>

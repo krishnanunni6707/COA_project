@@ -63,21 +63,21 @@ export default function ControlPanel({
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl border border-slate-700/50 space-y-4 sm:space-y-5 md:space-y-6"
+            className="bg-white/90 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-200 space-y-4 sm:space-y-5 md:space-y-6"
         >
             {/* Header */}
             <div className="space-y-1 sm:space-y-2">
                 <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
                     Control Panel
                 </h2>
-                <p className="text-slate-400 text-xs sm:text-sm">
+                <p className="text-slate-600 text-xs sm:text-sm">
                     Configure your cache simulation
                 </p>
             </div>
 
             {/* Policy Badge */}
             <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                <span className="text-slate-400 text-xs sm:text-sm">Active Policy:</span>
+                <span className="text-slate-600 text-xs sm:text-sm">Active Policy:</span>
                 <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-xs sm:text-sm font-semibold shadow-lg shadow-indigo-500/30">
                     {policy}
                 </div>
@@ -85,11 +85,11 @@ export default function ControlPanel({
 
             {/* Reference String Input */}
             <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">
+                <label className="text-sm font-medium text-slate-700">
                     Reference String
                 </label>
                 <input
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-500"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-400"
                     placeholder="e.g., 7,0,1,2,0,3,0,4,2,3,0,3,2"
                     value={reference}
                     onChange={e => setReference(e.target.value)}
@@ -99,7 +99,7 @@ export default function ControlPanel({
 
             {/* Frame Count */}
             <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300 flex items-center justify-between">
+                <label className="text-sm font-medium text-slate-700 flex items-center justify-between">
                     <span>Cache Frames</span>
                     <span className="text-indigo-400 font-bold">{frameCount}</span>
                 </label>
@@ -107,7 +107,7 @@ export default function ControlPanel({
                     type="range"
                     min={1}
                     max={8}
-                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-500"
                     value={frameCount}
                     onChange={e => setFrameCount(Number(e.target.value))}
                     disabled={isRunning}
@@ -121,12 +121,12 @@ export default function ControlPanel({
             {/* Policy Selection */}
             <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                    <label className="text-sm font-medium text-slate-300">
+                    <label className="text-sm font-medium text-slate-700">
                         Replacement Policy
                     </label>
                     <button
                         onClick={() => setShowPolicyInfo(!showPolicyInfo)}
-                        className="flex items-center gap-1 px-3 py-1.5 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600/50 rounded-lg text-xs text-slate-400 hover:text-slate-300 transition-all"
+                        className="flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-300 rounded-lg text-xs text-slate-600 hover:text-slate-700 transition-all"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -144,22 +144,22 @@ export default function ControlPanel({
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                         >
-                            <div className="space-y-3 p-4 bg-slate-950/50 border border-slate-700/50 rounded-xl mb-3">
+                            <div className="space-y-3 p-4 bg-gray-50 border border-gray-200 rounded-xl mb-3">
                                 {Object.entries(policyInfo).map(([key, info]) => (
                                     <div
                                         key={key}
                                         className={`p-3 rounded-lg border transition-all ${policy === key
-                                            ? "bg-indigo-950/30 border-indigo-500/30"
-                                            : "bg-slate-900/30 border-slate-700/30"
+                                            ? "bg-indigo-50 border-indigo-200"
+                                            : "bg-white border-gray-200"
                                             }`}
                                     >
                                         <div className="flex items-start gap-3">
                                             <span className="text-2xl">{info.icon}</span>
                                             <div className="flex-1">
-                                                <h4 className="font-semibold text-slate-200 mb-1">
+                                                <h4 className="font-semibold text-slate-800 mb-1">
                                                     {key} - {info.name}
                                                 </h4>
-                                                <p className="text-xs text-slate-400 mb-2">
+                                                <p className="text-xs text-slate-600 mb-2">
                                                     {info.description}
                                                 </p>
                                                 <p className="text-xs text-slate-500 italic">
@@ -182,7 +182,7 @@ export default function ControlPanel({
                             disabled={isRunning}
                             className={`px-4 py-3 rounded-xl font-medium transition-all ${policy === p
                                 ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30"
-                                : "bg-slate-800/50 text-slate-400 hover:bg-slate-700/50 hover:text-slate-300"
+                                : "bg-white text-slate-600 hover:bg-gray-50 hover:text-slate-700 border border-gray-300"
                                 } ${isRunning ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                             {p}
@@ -192,7 +192,7 @@ export default function ControlPanel({
             </div>
 
             {/* Step-by-Step Toggle */}
-            <div className="flex items-center justify-between p-4 bg-slate-800/30 rounded-xl border border-slate-700/30">
+            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,14 +200,14 @@ export default function ControlPanel({
                         </svg>
                     </div>
                     <div>
-                        <p className="font-medium text-slate-200">Step Mode</p>
+                        <p className="font-medium text-slate-800">Step Mode</p>
                         <p className="text-xs text-slate-500">Manual stepping</p>
                     </div>
                 </div>
                 <button
                     onClick={() => setStepByStep(!stepByStep)}
                     disabled={isRunning}
-                    className={`relative w-14 h-7 rounded-full transition-all ${stepByStep ? "bg-indigo-600" : "bg-slate-700"
+                    className={`relative w-14 h-7 rounded-full transition-all ${stepByStep ? "bg-indigo-600" : "bg-gray-300"
                         } ${isRunning ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                     <motion.div
@@ -226,7 +226,7 @@ export default function ControlPanel({
                     onClick={onRun}
                     disabled={isRunning}
                     className={`w-full py-4 rounded-xl font-semibold text-white transition-all shadow-xl ${isRunning
-                        ? "bg-slate-700 cursor-not-allowed opacity-50"
+                        ? "bg-gray-400 cursor-not-allowed opacity-50"
                         : "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-indigo-500/50"
                         }`}
                 >
@@ -251,16 +251,16 @@ export default function ControlPanel({
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={onReset}
-                    className="w-full py-3 rounded-xl font-medium text-slate-300 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600/50 transition-all"
+                    className="w-full py-3 rounded-xl font-medium text-slate-700 bg-white hover:bg-gray-50 border border-gray-300 transition-all"
                 >
                     ↻ Reset
                 </motion.button>
             </div>
 
             {/* Info Card */}
-            <div className="mt-6 p-4 bg-gradient-to-r from-indigo-950/30 to-purple-950/30 border border-indigo-500/20 rounded-xl">
-                <p className="text-xs text-slate-400 leading-relaxed">
-                    💡 <strong className="text-indigo-300">Tip:</strong> Enter page numbers separated by commas.
+            <div className="mt-6 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl">
+                <p className="text-xs text-slate-700 leading-relaxed">
+                    💡 <strong className="text-indigo-700">Tip:</strong> Enter page numbers separated by commas.
                     The simulator will visualize how the selected policy manages cache frames.
                 </p>
             </div>

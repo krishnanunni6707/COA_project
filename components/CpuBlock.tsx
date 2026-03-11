@@ -65,10 +65,10 @@ export default function CpuBlock({ currentPage, isActive }: CpuBlockProps) {
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="px-4 py-2 bg-slate-800/80 backdrop-blur-sm border border-slate-600/50 rounded-lg"
+                    className="px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-300 rounded-lg"
                 >
-                    <p className="text-xs text-slate-400">Requesting</p>
-                    <p className="text-lg font-bold text-indigo-300">Page {currentPage}</p>
+                    <p className="text-xs text-slate-600">Requesting</p>
+                    <p className="text-lg font-bold text-indigo-600">Page {currentPage}</p>
                 </motion.div>
             )}
         </div>

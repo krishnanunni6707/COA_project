@@ -241,8 +241,8 @@ export default function Simulator() {
     return (
         <div className="min-h-screen p-3 sm:p-4 md:p-6 lg:p-8">
             {/* Background Gradient */}
-            <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 -z-10" />
-            <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent -z-10" />
+            <div className="fixed inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50 -z-10" />
+            <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-100/30 via-transparent to-transparent -z-10" />
 
             <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6 md:space-y-8">
                 {/* Header */}
@@ -251,10 +251,10 @@ export default function Simulator() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center space-y-2 sm:space-y-3 px-2"
                 >
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent leading-tight">
                         Cache Replacement Simulator
                     </h1>
-                    <p className="text-slate-400 text-sm sm:text-base md:text-lg">
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg">
                         Visualize FIFO, LRU, and Random cache replacement policies
                     </p>
                 </motion.div>
@@ -288,7 +288,7 @@ export default function Simulator() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl border border-slate-700/50"
+                            className="bg-white/90 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-200"
                         >
                             {/* Desktop: CPU - Arrow - Cache horizontal */}
                             {/* Mobile: CPU top, then Arrow (left) - Cache (right) */}
